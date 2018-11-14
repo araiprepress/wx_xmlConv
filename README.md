@@ -3,7 +3,9 @@
 
 ## What wx_xmlConv does:
 wx_xmlConv outputs one html file from one xml file via xslt.
-(Xml for wx_xmlConv is mainly supposed exported from App.s like InDesign.) 
+
+※min version has only the minimal features, can convert only one file at once.
+※standard version convert multiple xml + one xslt, can open, view and edit the xml if necessary from the textbox window. 
 
 Using python libraries: 
 - lxml.etree
