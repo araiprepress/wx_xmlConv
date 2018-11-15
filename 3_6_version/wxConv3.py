@@ -29,22 +29,22 @@ class BaseFrame(wx.Frame):
 
 
 #panel_Trn  control items:
-        btn_Load_xslt = wx.Button(panel_Trn, wx.ID_ANY, "XSL(T)ファイルを選択", size=(150,25))
-        btn_Open_xslt = wx.Button(panel_Trn, wx.ID_ANY, "XSL(T)ファイルを開く", size=(150,25))
-        btn_Clear_xslt = wx.Button(panel_Trn, wx.ID_ANY, "XSL(T)ファイルをクリア", size=(150,25))
+        btn_Load_xslt = wx.Button(panel_Trn, wx.ID_ANY, "Select XSL(T)", size=(150,25))
+        btn_Open_xslt = wx.Button(panel_Trn, wx.ID_ANY, "Open XSL(T)", size=(150,25))
+        btn_Clear_xslt = wx.Button(panel_Trn, wx.ID_ANY, "Clear XSL(T)", size=(150,25))
         self.xslt_fn_TextCtrl = wx.TextCtrl(panel_Trn, ID_TARGET_XSLTFN, style=wx.TE_LEFT)
 
-        btn_Load_xml_files = wx.Button(panel_Trn, wx.ID_ANY, "XMLファイルを選択（複数可）", size=(150,25))
-        btn_Unload_xml_file = wx.Button(panel_Trn, wx.ID_ANY, "XMLファイルをリストから除外", size=(150,25))
-        btn_Clear_xml_files = wx.Button(panel_Trn, wx.ID_ANY, "XMLファイルをクリア", size=(150,25))
+        btn_Load_xml_files = wx.Button(panel_Trn, wx.ID_ANY, "Select XML file(s)", size=(150,25))
+        btn_Unload_xml_file = wx.Button(panel_Trn, wx.ID_ANY, "Remove XML file(s)", size=(150,25))
+        btn_Clear_xml_files = wx.Button(panel_Trn, wx.ID_ANY, "Clear XML file(s)", size=(150,25))
         xmlfnList=[]
         self.xml_fn_ListBox = wx.ListBox(panel_Trn, ID_TARGET_XMLFN, choices=xmlfnList, style=wx.LB_SINGLE)
 
-        btn_Trn_excute = wx.Button(panel_Trn, wx.ID_ANY, "変換実行", size=(200,25))
-        btn_Exit = wx.Button(panel_Trn, wx.ID_EXIT, "終　了", size=(200,25))#これは明らかにexitボタンです
+        btn_Trn_excute = wx.Button(panel_Trn, wx.ID_ANY, "Convert", size=(200,25))
+        btn_Exit = wx.Button(panel_Trn, wx.ID_EXIT, "EXIT", size=(200,25))#exit button
 
-        btn_Trn_savelog = wx.Button(panel_Trn, wx.ID_ANY, "作業LOGを保存", size=(150,25))
-        btn_ClearLog    = wx.Button(panel_Trn, wx.ID_ANY, "LOGをクリア", size=(150,25))
+        btn_Trn_savelog = wx.Button(panel_Trn, wx.ID_ANY, "Save log", size=(150,25))
+        btn_ClearLog    = wx.Button(panel_Trn, wx.ID_ANY, "Clear log", size=(150,25))
         self.log_TextCtrl = wx.TextCtrl(panel_Trn, ID_TARGET_LOG, style=wx.TE_LEFT|wx.TE_MULTILINE)
 
 #Bind() buttons:
@@ -93,7 +93,7 @@ class BaseFrame(wx.Frame):
         sizer.Add(wx.StaticLine(panel_Trn), flag=wx.EXPAND)
         sizer.Add(wx.Size(0,10))
 
-        sizer.Add(wx.StaticText(panel_Trn, wx.ID_ANY, "　ログ:"))
+        sizer.Add(wx.StaticText(panel_Trn, wx.ID_ANY, "log:"))
         sizer.Add(self.log_TextCtrl, border=5, proportion=1, flag = wx.ALL|wx.EXPAND)
         sizer_H2.Add(btn_Trn_savelog, border=5, flag = wx.ALL)
         sizer_H2.Add(btn_ClearLog, border=5, flag = wx.ALL)
@@ -110,7 +110,7 @@ class BaseFrame(wx.Frame):
         self.xslt_fn_TextCtrl.Clear()
         self.xslt_fn_TextCtrl.SetForegroundColour((0,0,0))
         xslt_wildCard = "xslt(*.xsl,*.xslt)|*.xsl;*.xslt"
-        fileDialogXSLT = wx.FileDialog(self, "XSL(T)ファイルをロード", defaultFile="*.xsl/*.xslt", wildcard=xslt_wildCard, style=wx.FD_DEFAULT_STYLE)
+        fileDialogXSLT = wx.FileDialog(self, "Load XSL(T) file(s)", defaultFile="*.xsl/*.xslt", wildcard=xslt_wildCard, style=wx.FD_DEFAULT_STYLE)
         if fileDialogXSLT.ShowModal() == wx.ID_OK:
             self.pathName = fileDialogXSLT.GetPath()
             self.xslt_fn_TextCtrl.SetValue(self.pathName)#############
@@ -122,7 +122,7 @@ class BaseFrame(wx.Frame):
         self.log_TextCtrl.SetForegroundColour((0,0,0))
         xmlfnList = self.xml_fn_ListBox.GetItems()#ListBoxはiterableでないので、取りおきlistが必要！！
         xml_wildCard = "xml(*.xml)|*.xml"
-        fileDialogXML = wx.FileDialog(self, "XMLファイルをロード", defaultFile="*.xml", wildcard=xml_wildCard, style=wx.FD_DEFAULT_STYLE|wx.FD_MULTIPLE)
+        fileDialogXML = wx.FileDialog(self, "Load XML file(s)", defaultFile="*.xml", wildcard=xml_wildCard, style=wx.FD_DEFAULT_STYLE|wx.FD_MULTIPLE)
 
         if fileDialogXML.ShowModal() == wx.ID_OK:
             self.pathNameS = fileDialogXML.GetPaths()
@@ -175,8 +175,8 @@ class BaseFrame(wx.Frame):
             if log_str != "":
                 self.AppendLogString(log_str)
         
-#xmlファイル処理
-#xslt自体がNGなときは一切先に進まない。
+#Convert xml
+#If xslt is NG, nothing starts
         if self.xml_fn_ListBox.GetItems() !=[] and trnXsltFlag ==True:
             for tr_xmlfn in self.xml_fn_ListBox.GetItems():
                 try:
@@ -368,7 +368,7 @@ class EditFileFrame(wx.Frame):
 
     def OnSaveAs(self, event): 
         wildCard = "xml(*.xml)|*.xml"
-        fileSaveDialog = wx.FileDialog(self, "textファイルを保存", defaultFile="*.xml", wildcard=wildCard, style=wx.SAVE | wx.OVERWRITE_PROMPT)
+        fileSaveDialog = wx.FileDialog(self, "Save text file", defaultFile="*.xml", wildcard=wildCard, style=wx.SAVE | wx.OVERWRITE_PROMPT)
         if fileSaveDialog.ShowModal() == wx.ID_OK:
             #saveStr = self.St_TextCtrl.GetValue()
             
