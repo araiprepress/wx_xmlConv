@@ -31,17 +31,17 @@ class BaseFrame(wx.Frame):
 
 
 #panel_Trn  control items:
-        btn_Load_xslt = wx.Button(panel_Trn, wx.ID_ANY, "XSL(T)ファイルを選択", size=(150,25))
+        btn_Load_xslt = wx.Button(panel_Trn, wx.ID_ANY, "Select XSL(T)", size=(150,25))
         self.xslt_fn_TextCtrl = wx.TextCtrl(panel_Trn, ID_TARGET_XSLTFN, style=wx.TE_LEFT)
 
-        btn_Load_xml_file = wx.Button(panel_Trn, wx.ID_ANY, "XMLファイルを選択（単数）", size=(150,25))
+        btn_Load_xml_file = wx.Button(panel_Trn, wx.ID_ANY, "Select XML", size=(150,25))
         self.xml_fn_TextCtrl  = wx.TextCtrl(panel_Trn, ID_TARGET_XSLTFN, style=wx.TE_LEFT)
 
-        btn_Trn_excute = wx.Button(panel_Trn, wx.ID_ANY, "変換実行", size=(150,25))
-        btn_Exit = wx.Button(panel_Trn, wx.ID_EXIT, "終　了", size=(150,25))#これは明らかにexitボタンです
+        btn_Trn_excute = wx.Button(panel_Trn, wx.ID_ANY, "Convert", size=(150,25))
+        btn_Exit = wx.Button(panel_Trn, wx.ID_EXIT, "EXIT", size=(150,25))#Exit button
 
         self.log_TextCtrl = wx.TextCtrl(panel_Trn, ID_TARGET_LOG, style=wx.TE_LEFT|wx.TE_MULTILINE)
-        btn_ClearLog = wx.Button(panel_Trn, wx.ID_ANY, "メッセージをクリア", size=(150,25))
+        btn_ClearLog = wx.Button(panel_Trn, wx.ID_ANY, "Clear Messages", size=(150,25))
 
 #Bind() buttons:
         btn_Load_xslt.Bind(wx.EVT_BUTTON, self.loadXslt)
@@ -63,7 +63,7 @@ class BaseFrame(wx.Frame):
         sizer.Add(btn_Trn_excute, border=5, flag = wx.ALL)
         sizer.Add(wx.StaticLine(panel_Trn), flag=wx.EXPAND)
 
-        sizer.Add(wx.StaticText(panel_Trn, wx.ID_ANY, "　メッセージ:"))
+        sizer.Add(wx.StaticText(panel_Trn, wx.ID_ANY, "　Message:"))
         sizer.Add(self.log_TextCtrl, border=5, proportion=1, flag = wx.ALL|wx.EXPAND)
 
         sizerH.Add(btn_ClearLog, border=5, flag = wx.ALL)
