@@ -11,3 +11,9 @@ Using python libraries:
 - lxml.etree
 - wxPython
 
+## Note
+- We shall not be liable for any damages that may result from downloaded data.
+- We don't accept technical support such as instructing how to install/use software.
+
+## License
+wx_xmlConv is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
