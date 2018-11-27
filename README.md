@@ -16,4 +16,4 @@ Using python libraries:
 - We don't accept technical support such as instructing how to install/use software.
 
 ## License
-wx_xmlConv is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
+wx_xmlConv is licensed under the MIT license.
