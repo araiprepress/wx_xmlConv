@@ -20,8 +20,11 @@ Windows 8.1 or lator
 
 ## How to use:
 - Copy wxConv.py or wxConv_min.py to somewhere easy to access.
-- Move to the folder : ie.) cd c:\copy_folder
+- Move to the folder : for example, type " cd c:\copy_folder " etc.
 - Start commandprompt and type " python wxConv.py ".
+
+### Panel image
+<img src="https://github.com/araiprepress/wx_xmlConv/blob/master/imgs/wxc_01.png" title="panel" width="575px">
 
 ## Note
 - We shall not be liable for any damages that may result from downloaded data.
