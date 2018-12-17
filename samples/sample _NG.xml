@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet href="sample.xsl" type="text/xsl"?>
+
+<items>
+	<item key="01">
+	<name>Person_No.1</name>
+	<id>id_01</id>
+	<access>
+		<email>person_1@mailme</email>
+		<location>Person_No.1 is here.
+	</access>
+	</item>
+
+	<item key="02">
+	<name>Person_No.2</name>
+	<id>id_02</id>
+	<access>
+		<email>person_2@mailme</email>
+		<location>Person_No.2 is here.</location>
+	</access>
+	</item>
+
+	<item key="01">
+	<name>Person_No.3</name>
+	<id>id_03</id>
+	<access>
+		<email>person_3@mailme</email>
+		<location>Person_No.3 is here.</location>
+	</access>
+	</item>
+	
+</items>
+
