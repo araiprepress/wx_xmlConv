@@ -1,5 +1,5 @@
 # wx_xmlConv
-## xml + xslt > html convert tool
+wx_xmlConv is a tool for converting a xml file to a html file with a xslt.
 
 ## What wx_xmlConv does:
 wx_xmlConv outputs one html file from one xml file via xslt.
@@ -10,6 +10,18 @@ wx_xmlConv outputs one html file from one xml file via xslt.
 Using python libraries: 
 - lxml.etree
 - wxPython
+
+### Supported OS:
+Windows 8.1 or lator
+
+### Need to prepare:
+- Python, lxml, wxPython are installed.
+- xml and xslt file(s).
+
+## How to use:
+- Copy wxConv.py or wxConv_min.py to somewhere easy to access.
+- Move to the folder : ie.) cd c:\copy_folder
+- Start commandprompt and type " python wxConv.py ".
 
 ## Note
 - We shall not be liable for any damages that may result from downloaded data.
